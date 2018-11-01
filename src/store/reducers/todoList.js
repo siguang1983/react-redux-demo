@@ -8,7 +8,6 @@ const todoList = (state=[], action) => {
       ]
 
     case"DELETE_TODO":
-      debugger;
       let arr = [];
       // 根据id删除一项
       if(state.length > 0){
@@ -16,7 +15,6 @@ const todoList = (state=[], action) => {
           return item.key !== action.data.key
         })
         state = arr;
-        debugger
       }
       return [
         ...state

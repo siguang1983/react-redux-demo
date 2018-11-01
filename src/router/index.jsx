@@ -11,15 +11,18 @@ import {
 import Layout from '../views/layout'
 
 // redux
-import { createStore } from 'redux'
+import { createStore, compose } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from '../store/reducers/'
+
+// 初始化数据
 const initValues = {
-  'First': 0,
-  'Second': 10,
-  'Third': 20
-};
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+  users: {
+    name: 'siguang'
+  }
+}
+const storeEnhancers = compose(window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(reducer, initValues, storeEnhancers);
 
 
 // 设置全局对象来接收Store，方便查看
